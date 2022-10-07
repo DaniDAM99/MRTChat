@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MRTChat.Page.RegistroPage"
+             xmlns:viewmodel="clr-namespace:MRTChat.ViewModel"
+             x:DataType="viewmodel:RegistroViewModel"
+             Title="RegistroPage">
+    <VerticalStackLayout>
+
+        <Entry Placeholder="Username" Text="{Binding Username}"/>
+        <Entry Placeholder="Email" Text="{Binding Email}"/>
+        <Entry Placeholder="Password" Text="{Binding Password}"/>
+
+        <Button Text="Login" Command="{Binding RegisterCommand}"></Button>
+        
+    </VerticalStackLayout>
+</ContentPage>

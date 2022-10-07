@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "806323164019",
+    "firebase_url": "https://chat-app-a680f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "chat-app-a680f",
+    "storage_bucket": "chat-app-a680f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806323164019:android:8dfdb26f8704b769826b06",
+        "android_client_info": {
+          "package_name": "com.indesdev.mrtchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806323164019-efn7duu2rof32c65i73jll63jh0r9d7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDydbijPHstnnkTeIIIe1vPITF7prPMz58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806323164019-efn7duu2rof32c65i73jll63jh0r9d7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

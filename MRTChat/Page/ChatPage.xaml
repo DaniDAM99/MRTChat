@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MRTChat.Page.ChatPage"
+             xmlns:viewmodel="clr-namespace:MRTChat.ViewModel"
+             x:DataType="viewmodel:ChatViewModel"
+             xmlns:models="clr-namespace:MRTChat.Models"
+             xmlns:converters="clr-namespace:MRTChat.Converters"
+             Title="ChatPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StringTo2LettersConverter x:Key="StrTo2LettersConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout BackgroundColor="Pink">
+        <Grid Padding="10" VerticalOptions="FillAndExpand" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollView Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand">
+                <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding Mensajes}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Mensaje">
+                            <HorizontalStackLayout>
+                                <Border WidthRequest="30" HeightRequest="30" StrokeShape="RoundRectangle 50">
+                                    <Label Text="{Binding Username, Converter={StaticResource StrTo2LettersConverter}}" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                                </Border>
+                                <Border Padding="5,0" VerticalOptions="StartAndExpand" StrokeShape="RoundRectangle 10 10 0 10">
+                                    <Editor VerticalOptions="StartAndExpand" 
+                                            HorizontalOptions="FillAndExpand"
+                                            MinimumHeightRequest="20"
+                                            MinimumWidthRequest="40"
+                                            Margin="0" 
+                                            Text="{Binding Data}" 
+                                            FontSize="12" 
+                                            IsReadOnly="True" 
+                                            IsSpellCheckEnabled="False"/>
+                                </Border>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <Label Text="No hay mensajes"/>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </ScrollView>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="End" Padding="0">
+                <Frame Padding="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Editor Grid.Column="0" Grid.Row="0" Placeholder="Mensaje....." Text="{Binding Mensaje}" HorizontalOptions="FillAndExpand" AutoSize="TextChanges"></Editor>
+                        <Button Grid.Column="1" Grid.Row="0" Text="Enviar" Command="{Binding SendMessageCommand}" HorizontalOptions="End"></Button>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+
+
+
+        </Grid>
+    </StackLayout>
+</ContentPage>
